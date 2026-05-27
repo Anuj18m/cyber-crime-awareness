@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Shield, AlertTriangle, Users, TrendingUp } from 'lucide-react';
 import TypingText from '../components/TypingText';
 import InfiniteMarquee from '../components/InfiniteMarquee';
@@ -35,12 +36,18 @@ const HomePage: React.FC = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="cyber-button bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-md text-lg font-semibold transition-all duration-300 transform hover:scale-105">
+            <Link
+              to="/learn"
+              className="cyber-button bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-md text-lg font-semibold transition-all duration-300 transform hover:scale-105"
+            >
               Start Learning
-            </button>
-            <button className="cyber-button bg-transparent border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-black px-8 py-4 rounded-md text-lg font-semibold transition-all duration-300">
+            </Link>
+            <Link
+              to="/report"
+              className="cyber-button bg-transparent border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-black px-8 py-4 rounded-md text-lg font-semibold transition-all duration-300"
+            >
               Report Threat
-            </button>
+            </Link>
           </div>
 
           {/* Stats */}
@@ -88,12 +95,18 @@ const HomePage: React.FC = () => {
             Join thousands of users who trust CyberShield for their security education
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="cyber-button bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-md text-lg font-semibold transition-all duration-300">
+            <Link
+              to="/learn"
+              className="cyber-button bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-md text-lg font-semibold transition-all duration-300"
+            >
               Get Started Now
-            </button>
-            <button className="cyber-button bg-gray-800 hover:bg-gray-700 text-green-400 px-8 py-4 rounded-md text-lg font-semibold transition-all duration-300">
+            </Link>
+            <Link
+              to="/team"
+              className="cyber-button bg-gray-800 hover:bg-gray-700 text-green-400 px-8 py-4 rounded-md text-lg font-semibold transition-all duration-300"
+            >
               Learn More
-            </button>
+            </Link>
           </div>
         </div>
       </section>

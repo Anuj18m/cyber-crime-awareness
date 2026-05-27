@@ -1,7 +1,10 @@
 import React from 'react';
 import { learningTracks } from '../data/learningTracks';
+import { useState } from 'react';
 
 const LearnPage: React.FC = () => {
+  const [expandedTrack, setExpandedTrack] = useState<string | null>('Beginner');
+
   return (
     <div className="min-h-screen pt-20">
       <div className="max-w-7xl mx-auto px-4 py-16">
@@ -16,7 +19,10 @@ const LearnPage: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {learningTracks.map((track) => (
+          {learningTracks.map((track) => {
+            const isExpanded = expandedTrack === track.level;
+
+            return (
             <div
               key={track.level}
               className="bg-gray-900 rounded-lg p-8 border border-gray-700 hover:border-green-500/50 transition-all duration-300"
@@ -53,11 +59,30 @@ const LearnPage: React.FC = () => {
                 ))}
               </div>
 
-              <button className="cyber-button w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-md transition-all duration-300">
-                Start {track.level} Track
+              {isExpanded && (
+                <div className="mb-6 rounded-lg border border-green-500/20 bg-green-500/5 p-4 text-sm text-gray-200">
+                  <p className="font-semibold text-green-300 mb-2">What this track does</p>
+                  <p className="text-gray-300 mb-3">
+                    A practical path for building confidence with common scam patterns, verification habits, and reporting steps.
+                  </p>
+                  <ul className="space-y-2 text-gray-300">
+                    <li>• Recommended pace: 1 to 2 sessions</li>
+                    <li>• Practice goal: identify warning signs before responding</li>
+                    <li>• Outcome: know when to verify, block, or report</li>
+                  </ul>
+                </div>
+              )}
+
+              <button
+                type="button"
+                onClick={() => setExpandedTrack(isExpanded ? null : track.level)}
+                className="cyber-button w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-md transition-all duration-300"
+              >
+                {isExpanded ? 'Hide Track Details' : `Start ${track.level} Track`}
               </button>
             </div>
-          ))}
+          );
+          })}
         </div>
       </div>
     </div>

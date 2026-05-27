@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Shield, ArrowUpRight } from 'lucide-react';
 import { cyberThreats } from '../data/cyberThreats';
 import type { CyberThreat } from '../types/cyberThreat';
@@ -79,10 +80,13 @@ const ImageGrid: React.FC = () => {
                   <div className="flex justify-between gap-4"><span className="text-gray-500">Estimated Loss:</span><span className="text-right">{threat.estimatedLoss}</span></div>
                 </div>
 
-                <button className="cyber-button w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-md transition-all duration-300 flex items-center justify-center gap-2">
+                <Link
+                  to="/case-studies"
+                  className="cyber-button w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-md transition-all duration-300 flex items-center justify-center gap-2"
+                >
                   <span>View Case Study</span>
                   <ArrowUpRight className="w-4 h-4" />
-                </button>
+                </Link>
               </div>
             </div>
           ))}
