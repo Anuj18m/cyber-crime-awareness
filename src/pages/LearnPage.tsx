@@ -1,75 +1,60 @@
 import React from 'react';
-import { Book, Video, FileText, Award } from 'lucide-react';
+import { learningTracks } from '../data/learningTracks';
 
 const LearnPage: React.FC = () => {
-  const resources = [
-    {
-      icon: Book,
-      title: 'Security Fundamentals',
-      description: 'Learn the basics of cybersecurity and online safety',
-      lessons: 12,
-      duration: '2 hours'
-    },
-    {
-      icon: Video,
-      title: 'Video Tutorials',
-      description: 'Watch expert-led tutorials on various security topics',
-      lessons: 25,
-      duration: '5 hours'
-    },
-    {
-      icon: FileText,
-      title: 'Best Practices',
-      description: 'Comprehensive guides on security best practices',
-      lessons: 8,
-      duration: '1 hour'
-    },
-    {
-      icon: Award,
-      title: 'Certification Track',
-      description: 'Earn certificates by completing security courses',
-      lessons: 20,
-      duration: '10 hours'
-    }
-  ];
-
   return (
     <div className="min-h-screen pt-20">
       <div className="max-w-7xl mx-auto px-4 py-16">
         <div className="text-center mb-16">
           <h1 className="text-5xl font-bold text-green-400 mb-6">
-            Learn Cybersecurity
+            Learning Tracks
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Comprehensive resources to help you understand and protect against cyber threats
+            Structured learning paths focused on the scams, tactics, and safety practices
+            most relevant to Indian users.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {resources.map((resource, index) => (
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {learningTracks.map((track) => (
             <div
-              key={index}
-              className="bg-gray-900 rounded-lg p-6 hover:transform hover:scale-105 transition-all duration-300 border border-gray-700 hover:border-green-500/50"
+              key={track.level}
+              className="bg-gray-900 rounded-lg p-8 border border-gray-700 hover:border-green-500/50 transition-all duration-300"
             >
-              <div className="flex items-center justify-center w-16 h-16 bg-green-600/20 rounded-full mb-6">
-                <resource.icon className="w-8 h-8 text-green-400" />
+              <div className="flex items-start justify-between gap-4 mb-6">
+                <div>
+                  <div className="inline-flex items-center px-3 py-1 rounded-full bg-green-600/20 text-green-400 text-sm font-semibold mb-4">
+                    {track.level}
+                  </div>
+                  <h2 className="text-2xl font-bold text-green-400 mb-3">
+                    {track.level} Track
+                  </h2>
+                  <p className="text-gray-300">
+                    {track.description}
+                  </p>
+                </div>
+
+                <div className="text-right shrink-0">
+                  <div className="text-2xl font-bold text-white">{track.modules.length}</div>
+                  <div className="text-sm text-gray-400">Modules</div>
+                  <div className="text-sm text-green-400 mt-2">{track.duration}</div>
+                </div>
               </div>
-              
-              <h3 className="text-xl font-semibold text-green-400 mb-3">
-                {resource.title}
-              </h3>
-              
-              <p className="text-gray-300 mb-4">
-                {resource.description}
-              </p>
-              
-              <div className="flex justify-between text-sm text-gray-400 mb-6">
-                <span>{resource.lessons} lessons</span>
-                <span>{resource.duration}</span>
+
+              <div className="space-y-3 mb-8">
+                {track.modules.map((module) => (
+                  <div
+                    key={module}
+                    className="flex items-start gap-3 p-3 rounded-md bg-black/30 border border-gray-800"
+                  >
+                    <span className="text-green-400 mt-0.5">✔</span>
+                    <span className="text-gray-200">{module}</span>
+                  </div>
+                ))}
               </div>
-              
-              <button className="cyber-button w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-md transition-all duration-300">
-                Start Learning
+
+              <button className="cyber-button w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-md transition-all duration-300">
+                Start {track.level} Track
               </button>
             </div>
           ))}

@@ -11,7 +11,7 @@ import PageTransition from './components/PageTransition';
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const [transitioning, setTransitioning] = useState(false);
+  const [transitioning] = useState(false);
 
   useEffect(() => {
     // Simulate loading time
