@@ -1,5 +1,10 @@
 # Cyber Crime Awareness Platform
 
+[![Live Demo](https://img.shields.io/badge/demo-Website-brightgreen?style=flat-square&logo=vercel)](https://cyber-crime-awareness-six.vercel.app/)
+[![GitHub stars](https://img.shields.io/github/stars/Anuj18m/cyber-crime-awareness?style=flat-square)](https://github.com/Anuj18m/cyber-crime-awareness/stargazers)
+[![Vercel](https://img.shields.io/badge/deploy-Vercel-000000?style=flat-square&logo=vercel)](https://cyber-crime-awareness-six.vercel.app/)
+[![Last commit](https://img.shields.io/github/last-commit/Anuj18m/cyber-crime-awareness?style=flat-square)](https://github.com/Anuj18m/cyber-crime-awareness/commits/main)
+
 🛡️ Cybercrime awareness platform focused on fraud prevention, cyber safety education, reporting guidance, and real-world scam awareness.
 
 ## Overview
@@ -78,4 +83,3 @@ All case studies are illustrative scenarios designed to demonstrate common cyber
 Anuj Mhatre
 
 🔗 https://linkedin.com/in/anujmhatre17
-# webathona
